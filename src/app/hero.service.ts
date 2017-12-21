@@ -16,11 +16,15 @@ const httpOptions = {
 export class HeroService {
 
   private heroesUrl = 'api/heroes';  // URL to web api
-
   constructor(
     private http: HttpClient,
     private messageService: MessageService) { }
 
+    getMessages() {
+     this.http.get(this.heroesUrl).subscribe(data => {
+       console.log(data);
+     })
+    }
   /** GET heroes from the server */
   getHeroes (): Observable<Hero[]> {
     return this.http.get<Hero[]>(this.heroesUrl)
