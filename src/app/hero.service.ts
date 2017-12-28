@@ -23,7 +23,7 @@ export class HeroService {
     getMessages() {
      this.http.get(this.heroesUrl).subscribe(data => {
        console.log(data);
-     })
+     });
     }
   /** GET heroes from the server */
   getHeroes (): Observable<Hero[]> {
